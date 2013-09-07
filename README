@@ -1,0 +1,15 @@
+Dandelion broadcasts Tencent News by Tencent Weibo.
+
+How to build
+---------------
+To build Dandelion, see HowToBuild.
+
+How to use
+---------------
+1. Run dandelion.exe.
+2. The web browser will open the link http://open.t.qq.com/cgi-bin/authorize?oauth_token=54f393fd20684d4d9bf8a73d4d38c274
+3. Input your QQ account and password.
+4. The web browser will jump to http://www.qq.com/?oauth_token=54f393fd20684d4d9bf8a73d4d38c274&oauth_verifier=123456&openid=76F7A68D903758804BB756F7F77759CB&openkey=6EA24DB5EDA30E798B4E944048009698
+5. Copy 123456 which is from 'oauth_verifier=123456' to console and press enter key.
+6. Dandelion starts to broadcast Tencent News.
+7. Dandelion create the file config/auth.conf to save app_key, app_secret, access_key and access_secret. You do not need to input oauth_verifier again when next run.

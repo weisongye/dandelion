@@ -1,0 +1,29 @@
+Ubuntu 12.04 LTS
+----------------
+cp lib/libiconv.so.2.5.1 /usr/local/lib
+ln -s /usr/local/lib/libiconv.so.2 /usr/local/lib/libiconv.so.2.5.1
+ln -s /usr/local/lib/libiconv.so /usr/local/lib/libiconv.so.2.5.1
+
+./configure
+make
+
+OpenWrt
+----------------
+export PATH=$PATH:/home/yourname/openwrt-toolchain/OpenWrt-Toolchain-atheros-for-mips-gcc-4.3.3+cs_uClibc-0.9.30.1/toolchain-mips_gcc-4.3.3+cs_uClibc-0.9.30.1/usr/bin
+export CC=mips-openwrt-linux-gcc
+export CPP=mips-openwrt-linux-cpp
+export GCC=mips-openwrt-linux-gcc
+export CXX=mips-openwrt-linux-g++
+export RANLIB=mips-openwrt-linux-uclibc-ranlib
+./configure --host=mips-openwrt-linux \
+	CPPFLAGS="-I/home/yourname/openwrt-sdk/OpenWrt-SDK-atheros-for-Linux-i686-gcc-4.3.3+cs_uClibc-0.9.30.1/staging_dir/target-mips_uClibc-0.9.30.1/usr/include -I/home/yourname/openwrt-sdk/OpenWrt-SDK-atheros-for-Linux-i686-gcc-4.3.3+cs_uClibc-0.9.30.1/staging_dir/target-mips_uClibc-0.9.30.1/usr/lib/libiconv-full/include" \
+	LDFLAGS=-L"/home/yourname/openwrt-sdk/OpenWrt-SDK-atheros-for-Linux-i686-gcc-4.3.3+cs_uClibc-0.9.30.1/staging_dir/target-mips_uClibc-0.9.30.1/usr/lib -L/home/yourname/openwrt-sdk/OpenWrt-SDK-atheros-for-Linux-i686-gcc-4.3.3+cs_uClibc-0.9.30.1/staging_dir/target-mips_uClibc-0.9.30.1/usr/lib/libiconv-full/lib"
+make
+
+Windows
+----------------
+1. Open win32\Dandelion.sln with Microsoft Visual Studio 2012.
+2. Build.
+3. Copy win32\lib\*.dll to win32\Debug or win32\Release.
+4. Copy config to win32\.
+5. Run.

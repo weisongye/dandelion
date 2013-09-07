@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{789660ab-f9fb-4407-878e-ad827297db99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{28465a0a-26ac-470b-a34a-9f4d3b0321a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\url">
+      <UniqueIdentifier>{c858ba93-bec3-45c9-9535-3b8dc1f428b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\url\Oauth">
+      <UniqueIdentifier>{d3fc22db-b393-49aa-ac60-5d14aee282ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\net">
+      <UniqueIdentifier>{3cce8c1c-df4d-4598-b6cd-4501ce720730}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\url\Oauth\hash.c">
+      <Filter>Source\url\Oauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\url\Oauth\oauth.c">
+      <Filter>Source\url\Oauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\url\Oauth\oauth_http.c">
+      <Filter>Source\url\Oauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\url\Oauth\xmalloc.c">
+      <Filter>Source\url\Oauth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\auth.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\parser.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\robot.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\log.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\weibo_param.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\util_string.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\weibo_api.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\url\url_request.cpp">
+      <Filter>Source\url</Filter>
+    </ClCompile>
+    <ClCompile Include="..\net\http_proxy.cpp">
+      <Filter>Source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\net\message.cpp">
+      <Filter>Source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\net\net.cpp">
+      <Filter>Source\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\request.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\net\http.cpp">
+      <Filter>Source\net</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\url\Oauth\oauth.h">
+      <Filter>Source\url\Oauth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\url\Oauth\xmalloc.h">
+      <Filter>Source\url\Oauth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\auth.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\parser.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\robot.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\weibo.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\log.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\util_string.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\weibo_api.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\weibo_param.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\url\url_request.h">
+      <Filter>Source\url</Filter>
+    </ClInclude>
+    <ClInclude Include="..\defs.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\net\http.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\net\http_proxy.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\net\message.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\net\net.h">
+      <Filter>Source\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\request.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
