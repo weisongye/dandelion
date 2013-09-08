@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dandelion by weisongye</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Dandelion</h1>
+        <p>Dandelion 是一个使用 C++ 编写的跨平台的腾讯微博自动发送工具</p>
+
+        <p class="view"><a href="https://github.com/weisongye/dandelion">View the Project on GitHub <small>weisongye/dandelion</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/weisongye/dandelion/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/weisongye/dandelion/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/weisongye/dandelion">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Dandelion 是一个使用 C++ 编写的跨平台的腾讯微博自动发送工具。</p>
+
+<h1>
+<a name="%E5%8A%9F%E8%83%BD" class="anchor" href="#%E5%8A%9F%E8%83%BD"><span class="octicon octicon-link"></span></a>功能</h1>
+
+<p>程序每隔2分钟读取腾信新闻RSS, 将内容发布到腾讯微博上。</p>
+
+<p>若近段时间无RSS更新，则程序会转发一些热门微博。</p>
+
+<h1>
+<a name="%E5%BC%80%E5%8F%91" class="anchor" href="#%E5%BC%80%E5%8F%91"><span class="octicon octicon-link"></span></a>开发</h1>
+
+<p>本程序基于 bluentzhao 发布的腾讯微博非官方版本的 C++ SDK v1.2 编写。</p>
+
+<p><a href="http://zhujiangbotest.googlecode.com/svn/trunk/txweibo_C++SDK-v1.2/">http://zhujiangbotest.googlecode.com/svn/trunk/txweibo_C++SDK-v1.2/</a></p>
+
+<p>对原 SDK 的改进点如下：</p>
+
+<ol>
+<li><p>因本App 目前不解析腾讯微博响应包，故裁剪掉 xml 和 json 库。</p></li>
+<li><p>原 SDK 的字符串处理使用 MFC 的 API，和C标准库函数混合使用，可移植性不好，并且很容易出现内存泄漏问题。现将其统一用 C++ 中的 std::string 处理。</p></li>
+<li><p>线程库替换为 pthread。</p></li>
+<li><p>编写 message 类来处理消息队列，取代 Windows API 的消息处理。解决了原 SDK 的一些同步竞争问题，程序运行更稳定。</p></li>
+<li><p>使用 libiconv2 取代原 SDK 的编码转换函数，解决了一些乱码问题。</p></li>
+<li><p>对代码进行了重构。</p></li>
+</ol><p>因此，如果您需要使用 C++ 编写跨平台的腾讯微博应用，希望这些代码能对您有所帮助。</p>
+
+<h1>
+<a name="%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C" class="anchor" href="#%E7%BC%96%E8%AF%91%E5%92%8C%E8%BF%90%E8%A1%8C"><span class="octicon octicon-link"></span></a>编译和运行</h1>
+
+<h2>
+<a name="windows" class="anchor" href="#windows"><span class="octicon octicon-link"></span></a>Windows</h2>
+
+<p>使用 Visual Studio 2012 打开 win32/Dandelion.sln 即可编译。</p>
+
+<p>如果您使用更低版本的 Visual Studio，可自行创建工程编译。</p>
+
+<p>Dandelion 使用了 STL，因此对标准 C++ 支持不好的 Visual C++ 6.0 可能会无法通过编译。</p>
+
+<p>编译完成之后，在 win32 目录下生成 Debug 或 Release 文件夹，这取决于您的编译配置。</p>
+
+<p>将 config 文件夹和 win32 目录下的 DLL 文件复制到这个文件夹中。</p>
+
+<p>在 Visual Studio 2012 按 F5 开始调试。</p>
+
+<p>稍等片刻，浏览器窗口弹出“授权使用腾讯微博账号”的页面，请输入微博账号和密码。授权完成后浏览器跳转到一个url。</p>
+
+<p>将这个url，即浏览器的地址栏中 oauth_verifier=xxxxxx 中 = 后面的数字复制下来，粘贴到 dandelion 命令行窗口中，回车。</p>
+
+<p>现在程序开始使用先前验证时使用的腾讯微博账号来广播微博了。</p>
+
+<p>同时程序在 config 目录下生成 auth.conf 文件保存授权信息。下次运行时不必在网页中授权使用账号。</p>
+
+<h2>
+<a name="linux" class="anchor" href="#linux"><span class="octicon octicon-link"></span></a>Linux</h2>
+
+<p>执行以下命令编译：</p>
+
+<p>$ cd dandelion</p>
+
+<p>$ ./configure</p>
+
+<p>$ make</p>
+
+<p>执行以下命令运行:</p>
+
+<p>$ ./dandelion</p>
+
+<p>程序暂不支持的 Linux 下授权使用腾讯微博账号，因此如果 config 目录下没有 auth.conf 文件，程序将给出提示并停止运行。</p>
+
+<p>您可以在 Windows 环境下生成 auth.conf 文件供 Linux 环境下使用。</p>
+
+<h1>
+<a name="%E9%85%8D%E7%BD%AE%E9%A1%B9" class="anchor" href="#%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="octicon octicon-link"></span></a>配置项</h1>
+
+<p>以下为 config 目录下各个文件的作用：</p>
+
+<p>auth.conf    保存了授权信息。</p>
+
+<p>black.lst    程序每隔2分钟检查最新收听者的昵称是否包含这些字段，若包含则把这个用户加到黑名单中。</p>
+
+<p>block.lst    如果要广播或转发的微博中包含这些关键词，则跳过，不予广播。</p>
+
+<p>inserted.txt 程序开始运行时会广播此文件中的内容</p>
+
+<p>rss.lst      指定了程序要抓取的 RSS 种子。您可以在 <a href="http://rss.qq.com/news.htm">http://rss.qq.com/news.htm</a> 中找到其他的种子并添加进来。</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/weisongye">weisongye</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-43859308-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
